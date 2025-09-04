@@ -1554,11 +1554,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed\\DB_Search_Speed.csproj",
+      "projectUniqueName": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed\\DB_Search_Speed.csproj",
       "projectName": "DB_Search_Speed",
-      "projectPath": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed\\DB_Search_Speed.csproj",
+      "projectPath": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed\\DB_Search_Speed.csproj",
       "packagesPath": "C:\\Users\\kilia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed\\obj\\",
+      "outputPath": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [

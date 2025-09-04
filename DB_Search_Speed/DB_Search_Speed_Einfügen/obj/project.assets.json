@@ -1554,11 +1554,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\DB_Search_Speed_Einfügen.csproj",
+      "projectUniqueName": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\DB_Search_Speed_Einfügen.csproj",
       "projectName": "DB_Search_Speed_Einfügen",
-      "projectPath": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\DB_Search_Speed_Einfügen.csproj",
+      "projectPath": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\DB_Search_Speed_Einfügen.csproj",
       "packagesPath": "C:\\Users\\kilia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kilia\\OneDrive - HTL Krems\\SEW\\C#\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\obj\\",
+      "outputPath": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [

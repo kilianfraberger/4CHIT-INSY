@@ -18,7 +18,7 @@ class Program
             Stopwatch sw = Stopwatch.StartNew();
             int foundCount = 0;
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Words WHERE value = @val", conn))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Words WHERE value LIKE @val", conn))
             {
                 var param = cmd.Parameters.Add("@val", MySqlDbType.VarChar);
 

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Einfügen",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed", "DB_Search_Speed\DB_Search_Speed.csproj", "{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Anfangsbuchstaben", "DB_Search_Speed_Anfangsbuchstaben\DB_Search_Speed_Anfangsbuchstaben.csproj", "{2103EC28-6DF5-4EEA-9651-582B15338A04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
