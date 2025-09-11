@@ -1560,7 +1560,6 @@
       "packagesPath": "C:\\Users\\kilia\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\kilia\\OneDrive\\Dokumente\\GitHub\\4CHIT-INSY\\DB_Search_Speed\\DB_Search_Speed_Einfügen\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
@@ -1592,7 +1591,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {

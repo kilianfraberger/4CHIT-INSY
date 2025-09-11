@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
 using MySql.Data.MySqlClient;
 
@@ -9,6 +8,8 @@ class Program
     {
         string connectionString = @"server=localhost;userid=root;password=insy;database=DB_Search_Speed";
         int searchCount = 100;
+        Console.Write("Länge des Anfangs: ");
+        int length = int.Parse(Console.ReadLine() ?? "1");
         Random rnd = new Random();
 
         using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -23,13 +24,13 @@ class Program
 
                 for (int i = 0; i < searchCount; i++)
                 {
-                    string prefix = GenerateRandomWord(3, rnd);
-                    param.Value = prefix + "%"; // LIKE-Präfix
+                    string prefix = GenerateRandomWord(length, rnd);
+                    param.Value = prefix + "%";
 
                     long count = (long)cmd.ExecuteScalar();
 
                     Console.WriteLine(
-                        $"Suche {i + 1}/{searchCount}: Wörter mit '{prefix}%' -> {count} Treffer"
+                        $"Suche {i + 1}/{searchCount}: Wörter die mit '{prefix}%' beginnen -> {count} Treffer"
                     );
                 }
             }
