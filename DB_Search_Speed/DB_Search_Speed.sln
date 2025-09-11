@@ -2,9 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Einfügen", "DB_Search_Speed_Einfügen\DB_Search_Speed_Einfügen.csproj", "{4FBC37E0-7403-4076-9D1C-37A90110F835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed", "DB_Search_Speed\DB_Search_Speed.csproj", "{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Value", "DB_Search_Speed_Value\DB_Search_Speed_Value.csproj", "{3FE9F104-BEBF-4E0E-A21D-02DC937A25D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Anfangsbuchstaben", "DB_Search_Speed_Anfangsbuchstaben\DB_Search_Speed_Anfangsbuchstaben.csproj", "{2103EC28-6DF5-4EEA-9651-582B15338A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Search_Speed_Number", "DB_Search_Speed_Number\DB_Search_Speed_Number.csproj", "{09ADB8AD-A626-403F-A0C7-02BDA8EB018B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2103EC28-6DF5-4EEA-9651-582B15338A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09ADB8AD-A626-403F-A0C7-02BDA8EB018B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09ADB8AD-A626-403F-A0C7-02BDA8EB018B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09ADB8AD-A626-403F-A0C7-02BDA8EB018B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09ADB8AD-A626-403F-A0C7-02BDA8EB018B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

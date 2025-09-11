@@ -34,3 +34,40 @@ C:\Users\kilia\OneDrive - HTL Krems\SEW\C#\DB_Search_Speed\DB_Search_Speed_Einf�
 C:\Users\kilia\OneDrive - HTL Krems\SEW\C#\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.pdb
 C:\Users\kilia\OneDrive - HTL Krems\SEW\C#\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.genruntimeconfig.cache
 C:\Users\kilia\OneDrive - HTL Krems\SEW\C#\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\ref\DB_Search_Speed_Einfügen.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\DB_Search_Speed_Einfügen.exe
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\DB_Search_Speed_Einfügen.deps.json
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\DB_Search_Speed_Einfügen.runtimeconfig.json
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\DB_Search_Speed_Einfügen.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\DB_Search_Speed_Einfügen.pdb
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.csproj.AssemblyReference.cache
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.AssemblyInfoInputs.cache
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.AssemblyInfo.cs
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.csproj.CoreCompileInputs.cache
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.sourcelink.json
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Searc.16DC3746.Up2Date
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\refint\DB_Search_Speed_Einfügen.dll
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.pdb
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\DB_Search_Speed_Einfügen.genruntimeconfig.cache
+C:\Users\kilia\OneDrive\Dokumente\GitHub\4CHIT-INSY\DB_Search_Speed\DB_Search_Speed_Einfügen\obj\Debug\net9.0\ref\DB_Search_Speed_Einfügen.dll

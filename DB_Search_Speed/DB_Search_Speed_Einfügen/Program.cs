@@ -36,10 +36,11 @@ class Program
                     for (int i = 0; i < currentBatch; i++)
                     {
                         string word = GenerateRandomWord(10, rnd);
-                        values.Add($"('{word}')");
+                        int number = rnd.Next(1, 6); // 1 bis 5 inkl.
+                        values.Add($"('{word}', {number})");
                     }
 
-                    string sql = $"INSERT INTO Words (value) VALUES {string.Join(",", values)};";
+                    string sql = $"INSERT INTO Words (value, number) VALUES {string.Join(",", values)};";
                     using (var cmd = new MySqlCommand(sql, conn, tran))
                     {
                         cmd.ExecuteNonQuery();

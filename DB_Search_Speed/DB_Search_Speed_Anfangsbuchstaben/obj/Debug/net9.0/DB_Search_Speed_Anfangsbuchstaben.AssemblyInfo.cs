@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DB_Search_Speed_Anfangsbuchstaben")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ca4c179e69f058b331ab06f44132b8a4558be8f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b4aa597ccfa87fc5a6cb938045169c7bfdd3dfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("DB_Search_Speed_Anfangsbuchstaben")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DB_Search_Speed_Anfangsbuchstaben")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
