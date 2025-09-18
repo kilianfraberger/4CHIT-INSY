@@ -18,7 +18,7 @@ class Program
             Stopwatch sw = Stopwatch.StartNew();
             int foundCount = 0;
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Words WHERE value LIKE @val", conn))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT value FROM Words WHERE value = @val", conn))
             {
                 var param = cmd.Parameters.Add("@val", MySqlDbType.VarChar);
 
@@ -26,10 +26,23 @@ class Program
                 {
                     string word = GenerateRandomWord(10, rnd);
                     param.Value = word;
-                    long count = (long)cmd.ExecuteScalar();
-                    if (count > 0) foundCount++;
 
-                    Console.WriteLine($"Suche {i + 1}/{searchCount}: {word} {(count > 0 ? "gefunden" : "nicht gefunden")}");
+                    int treffer = 0;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Zugriff auf den gefundenen Wert möglich:
+                            // string val = reader.GetString(0);
+                            treffer++;
+                        }
+                    }
+
+                    if (treffer > 0) foundCount++;
+
+                    Console.WriteLine(
+                        $"Suche {i + 1}/{searchCount}: {word} {(treffer > 0 ? "gefunden" : "nicht gefunden")}"
+                    );
                 }
             }
 

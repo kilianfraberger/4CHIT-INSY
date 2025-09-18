@@ -18,7 +18,7 @@ class Program
             Console.WriteLine("Starte LIKE-Suche...");
             Stopwatch sw = Stopwatch.StartNew();
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Words WHERE value LIKE @val", conn))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT value FROM Words WHERE value LIKE @val", conn))
             {
                 var param = cmd.Parameters.Add("@val", MySqlDbType.VarChar);
 
@@ -27,10 +27,19 @@ class Program
                     string prefix = GenerateRandomWord(length, rnd);
                     param.Value = prefix + "%";
 
-                    long count = (long)cmd.ExecuteScalar();
+                    int treffer = 0;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Zugriff auf das Wort möglich, falls man es braucht:
+                            // string word = reader.GetString(0);
+                            treffer++;
+                        }
+                    }
 
                     Console.WriteLine(
-                        $"Suche {i + 1}/{searchCount}: Wörter die mit '{prefix}%' beginnen -> {count} Treffer"
+                        $"Suche {i + 1}/{searchCount}: Wörter die mit '{prefix}%' beginnen -> {treffer} Treffer"
                     );
                 }
             }
