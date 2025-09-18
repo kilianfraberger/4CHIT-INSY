@@ -15,26 +15,36 @@ class Program
             conn.Open();
             Console.WriteLine("Starte Zahlensuche...");
             Stopwatch sw = Stopwatch.StartNew();
-            int foundCount = 0;
-            
-            using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Words WHERE number = @num", conn))
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT number FROM Words WHERE number = @num", conn))
             {
                 var param = cmd.Parameters.Add("@num", MySqlDbType.Int32);
 
                 for (int i = 0; i < searchCount; i++)
                 {
-                    int number = rnd.Next(1, 6);
+                    int number = rnd.Next(1, 21);
                     param.Value = number;
 
-                    long count = (long)cmd.ExecuteScalar();
-                    if (count > 0) foundCount++;
+                    int trefferProSuche = 0;
 
-                    Console.WriteLine($"Suche {i + 1}/{searchCount}: Zahl {number} -> {(count > 0 ? $"{count} Treffer" : "keine Treffer")}");
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            trefferProSuche++;
+                        }
+                    }
+                    
+
+                    Console.WriteLine(
+                        $"Suche {i + 1}/{searchCount}: Zahl {number} -> " +
+                        (trefferProSuche > 0 ? $"{trefferProSuche} Treffer" : "keine Treffer")
+                    );
                 }
             }
 
             sw.Stop();
-            Console.WriteLine($"Suche abgeschlossen. {foundCount} von {searchCount} Zahlen haben Treffer geliefert.");
+            Console.WriteLine($"Suche abgeschlossen.");
             Console.WriteLine($"Benötigte Zeit: {sw.Elapsed.TotalMilliseconds:N0} ms");
         }
     }
