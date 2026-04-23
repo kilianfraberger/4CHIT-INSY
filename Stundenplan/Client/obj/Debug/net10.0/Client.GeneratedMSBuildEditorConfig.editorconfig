@@ -36,8 +36,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RGVsZXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/DeleteModal.razor]
+build_metadata.AdditionalFiles.TargetPath = RGVsZXRlTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = RWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/LessonCard.razor]
+build_metadata.AdditionalFiles.TargetPath = TGVzc29uQ2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/Pages/Counter.razor]
@@ -58,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/TimetableGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = VGltZXRhYmxlR3JpZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kilia/Github/4CHIT-INSY/Stundenplan/Client/_Imports.razor]

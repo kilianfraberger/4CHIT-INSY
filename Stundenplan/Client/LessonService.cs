@@ -5,9 +5,10 @@ public class LessonService
 {
     private readonly HttpClient _http;
     public LessonService(HttpClient http) => _http = http;
-
-    public async Task<List<Lesson>> GetLessonsAsync() => 
-        await _http.GetFromJsonAsync<List<Lesson>>("api/Lesson") ?? new();
+    
+    public async Task<List<Lesson>> GetLessonsAsync() {
+        return await _http.GetFromJsonAsync<List<Lesson>>("api/lesson");
+    }
 
     public async Task SaveAsync(Lesson lesson)
     {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ioxDayZIDEY=",
+  "dgSpecHash": "k4gmLxJy1W4=",
   "success": true,
   "projectFilePath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -83,7 +83,7 @@
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\6.0.2\\microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.3\\microsoft.data.sqlite.core.10.0.3.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.diasymreader\\2.0.0\\microsoft.diasymreader.2.0.0.nupkg.sha512",
-    "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.hotreload.webassembly.browser\\10.0.106\\microsoft.dotnet.hotreload.webassembly.browser.10.0.106.nupkg.sha512",
+    "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.hotreload.webassembly.browser\\10.0.107\\microsoft.dotnet.hotreload.webassembly.browser.10.0.107.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\10.0.2\\microsoft.dotnet.scaffolding.shared.10.0.2.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.3\\microsoft.entityframeworkcore.10.0.3.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.3\\microsoft.entityframeworkcore.abstractions.10.0.3.nupkg.sha512",
@@ -156,5 +156,30 @@
     "C:\\Users\\kilia\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\zstdsharp.port\\0.8.6\\zstdsharp.port.0.8.6.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "projectPath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
+      "libraryId": "NuGet.Packaging",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "projectPath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
+      "libraryId": "NuGet.Protocol",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,40 @@
+﻿<div class="modal-backdrop" @onclick="OnCancel">
+    <div class="modal-card modal-card-sm" @onclick:stopPropagation="true">
+        <div class="delete-icon">⚠</div>
+        <div class="modal-card-header modal-card-header-center"><span>Löschen?</span></div>
+        <div class="delete-body">
+            <p class="delete-hint">Soll diese Stunde wirklich entfernt werden?</p>
+            <div class="delete-actions">
+                <button class="sp-btn-danger" @onclick="OnConfirm">Ja, löschen</button>
+                <button class="sp-btn-cancel" @onclick="OnCancel">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnConfirm { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+}
+<style>
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 15, 30, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+    }
+
+    .modal-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 1.5rem;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .sp-btn-danger { background: #dc2626; color: #fff; border: none; padding: 9px; border-radius: 7px; width: 100%; }
+    .sp-btn-cancel { background: #fff; border: 1px solid #e5e7eb; padding: 8px; border-radius: 7px; width: 100%; }
+</style>

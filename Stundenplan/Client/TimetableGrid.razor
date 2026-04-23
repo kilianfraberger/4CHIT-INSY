@@ -1,0 +1,90 @@
+﻿@using Model
+@using System.Reflection
+@using System.ComponentModel
+
+<div class="timetable-wrapper">
+    <div class="timetable-grid">
+        <div class="timetable-corner"></div>
+        @foreach (var day in Enum.GetValues<WeekDay>())
+        {
+            <div class="timetable-day-header">@day</div>
+        }
+
+        @foreach (var hour in Enum.GetValues<LessonHour>())
+        {
+            <div class="timetable-hour-label">
+                <span class="hour-from">@GetHour(hour, 0)</span>
+                <span class="hour-sep">–</span>
+                <span class="hour-to">@GetHour(hour, 1)</span>
+            </div>
+
+            @foreach (var day in Enum.GetValues<WeekDay>())
+            {
+                var lesson = Lessons?.FirstOrDefault(l => l.WeekDay == day && l.Hour == hour);
+                <div class="timetable-cell @(lesson != null ? "has-lesson" : "empty-cell")">
+                    @if (lesson != null)
+                    {
+                        <LessonCard Lesson="lesson" 
+                                    SubjectDesc="@GetSubject(lesson.Sid)" 
+                                    TeacherAbbr="@GetTeacher(lesson.Tid)"
+                                    OnEdit="OnEdit" 
+                                    OnDelete="OnDelete" />
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public List<Lesson>? Lessons { get; set; }
+    [Parameter] public Func<int, string> GetSubject { get; set; } = id => id.ToString();
+    [Parameter] public Func<int, string> GetTeacher { get; set; } = id => id.ToString();
+    [Parameter] public EventCallback<Lesson> OnEdit { get; set; }
+    [Parameter] public EventCallback<int> OnDelete { get; set; }
+
+    private string GetHour(LessonHour h, int part) {
+        var desc = h.GetType().GetField(h.ToString())?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? "";
+        var times = desc.Split(" - ");
+        if (times.Length < 2) return "";
+        return part == 0 ? times[0].Split(' ').Last() : times[1].Trim();
+    }
+}
+<style>
+    .timetable-wrapper { overflow-x: auto; }
+
+    .timetable-grid {
+        display: grid;
+        grid-template-columns: 82px repeat(5, 1fr);
+        gap: 4px;
+        min-width: 640px;
+    }
+
+    .timetable-day-header {
+        padding: 8px 4px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 13px;
+        background: #f4f4f8;
+        border-radius: 8px;
+    }
+
+    .timetable-hour-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f4f4f8;
+        border-radius: 8px;
+    }
+
+    .timetable-cell { min-height: 62px; border-radius: 8px; }
+    .timetable-cell.empty-cell {
+        background: #fafafa;
+        border: 1.5px dashed #ebebeb;
+    }
+
+    .hour-from { font-size: 11px; font-weight: 600; }
+    .hour-sep  { font-size: 9px; color: #ccc; }
+    .hour-to   { font-size: 10px; color: #aaa; }
+</style>

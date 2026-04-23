@@ -1279,11 +1279,11 @@
           }
         }
       },
-      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.106": {
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.107": {
         "runtime": {
           "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll": {
-            "assemblyVersion": "10.0.106.0",
-            "fileVersion": "10.1.626.17701"
+            "assemblyVersion": "10.0.107.0",
+            "fileVersion": "10.1.726.21808"
           }
         }
       },
@@ -2255,7 +2255,7 @@
       "Client/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebAssembly": "10.0.4",
-          "Microsoft.DotNet.HotReload.WebAssembly.Browser": "10.0.106",
+          "Microsoft.DotNet.HotReload.WebAssembly.Browser": "10.0.107",
           "Model": "1.0.0"
         },
         "runtime": {
@@ -2831,12 +2831,12 @@
       "path": "microsoft.diasymreader/2.0.0",
       "hashPath": "microsoft.diasymreader.2.0.0.nupkg.sha512"
     },
-    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.106": {
+    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.107": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8MzC43QmkOaut7+LL44MrLhtM3rcNeZOmqGtq92m5tbzJ+61bHExfWzE/6SL77ebzq8W+HVD58u+5pov6T1apg==",
-      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.106",
-      "hashPath": "microsoft.dotnet.hotreload.webassembly.browser.10.0.106.nupkg.sha512"
+      "sha512": "sha512-PkusSbB46QQD/X4MHjxelrG67Av2TPxlYkkBgW5PJAPR4d9I6zprYAOhOUovO3WkdaFUyVYO7vGtFKdjJGg6MA==",
+      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.107",
+      "hashPath": "microsoft.dotnet.hotreload.webassembly.browser.10.0.107.nupkg.sha512"
     },
     "Microsoft.DotNet.Scaffolding.Shared/10.0.2": {
       "type": "package",

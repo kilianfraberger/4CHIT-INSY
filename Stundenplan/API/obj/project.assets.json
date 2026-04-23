@@ -1468,7 +1468,7 @@
           }
         }
       },
-      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.106": {
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.107": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll": {}
@@ -2852,7 +2852,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebAssembly": "10.0.4",
-          "Microsoft.DotNet.HotReload.WebAssembly.Browser": "10.0.106",
+          "Microsoft.DotNet.HotReload.WebAssembly.Browser": "10.0.107",
           "Model": "1.0.0"
         },
         "compile": {
@@ -5309,10 +5309,10 @@
         "microsoft.diasymreader.nuspec"
       ]
     },
-    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.106": {
-      "sha512": "8MzC43QmkOaut7+LL44MrLhtM3rcNeZOmqGtq92m5tbzJ+61bHExfWzE/6SL77ebzq8W+HVD58u+5pov6T1apg==",
+    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.107": {
+      "sha512": "PkusSbB46QQD/X4MHjxelrG67Av2TPxlYkkBgW5PJAPR4d9I6zprYAOhOUovO3WkdaFUyVYO7vGtFKdjJGg6MA==",
       "type": "package",
-      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.106",
+      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.107",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5323,7 +5323,7 @@
         "buildMultiTargeting/Microsoft.DotNet.HotReload.WebAssembly.Browser.props",
         "buildTransitive/Microsoft.DotNet.HotReload.WebAssembly.Browser.props",
         "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll",
-        "microsoft.dotnet.hotreload.webassembly.browser.10.0.106.nupkg.sha512",
+        "microsoft.dotnet.hotreload.webassembly.browser.10.0.107.nupkg.sha512",
         "microsoft.dotnet.hotreload.webassembly.browser.nuspec",
         "staticwebassets/Microsoft.DotNet.HotReload.WebAssembly.Browser.99zm1jdh75.lib.module.js"
       ]
@@ -7597,7 +7597,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.106/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.107/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -8014,5 +8014,27 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "libraryId": "NuGet.Packaging",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "libraryId": "NuGet.Protocol",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
