@@ -1,0 +1,89 @@
+﻿@page "/"
+@using System.ComponentModel
+@using System.Reflection
+@using Model
+@inject HttpClient http
+<h1>Test</h1>
+
+<select @bind="ClassId" @bind:after="LoadLessonsForClass">
+    @foreach (var c in classes)
+    {
+        <option value="@c.Id">@c.Abbr</option>
+    }
+</select>
+<select @bind="Hour" @bind:after="LoadLessonsForClass">
+    <option value="">Alle Stunden</option>
+    @foreach (var h in Enum.GetValues<LessonHour>())
+    {
+        <option value="@h">@h.GetDescription()></option>
+    }
+</select>
+
+@if(lesson!=null){
+<EditComponent lesson="lesson" OnSave="SaveChanges" OnCancel="()=>lesson=null"></EditComponent>
+}
+@if (lessons == null || !lessons.Any())
+{
+    <p><em>Lade Daten oder keine Daten gefunden...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Subject</th>
+            <th>Hour</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in lessons)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Cid</td>
+                <td>@item.Hour.GetDescription()</td>
+                <Button @onclick="()=>/*Edit(item.Id)*/lesson=lessons.Find(l => l.Id==item.Id)">Edit</Button>
+                <a href="/edit/@item.Id" class="btn btn-primary">Edit-Seite</a>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code{
+    public Lesson? lesson { get; set; }
+    public List<Lesson>? lessons { get; set; } = new List<Lesson>();
+    public int ClassId = 4;
+    public LessonHour? Hour;
+    public List<SchoolClass> classes { get; set; } = new List<SchoolClass>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await LoadLessonsForClass();
+        classes = await http.GetFromJsonAsync<List<SchoolClass>>("/api/Classes");
+    }
+
+    public async Task SaveChanges()
+    {
+        await http.PutAsJsonAsync($"api/Lesson/{lesson.Id}", lesson);
+    }
+
+    public async Task LoadLessons()
+    {
+        lessons = await http.GetFromJsonAsync<List<Lesson>>("/api/Lesson");
+    }
+
+    public async Task LoadLessonsForClass()
+    {
+        await LoadLessons();
+        if (ClassId != 0)
+        {
+            lessons = lessons.Where(l => l.Cid == ClassId).ToList();
+        }
+
+        if (Hour != null)
+        {
+            lessons = lessons.Where(l => l.Hour == Hour).ToList();
+        }
+    }
+}

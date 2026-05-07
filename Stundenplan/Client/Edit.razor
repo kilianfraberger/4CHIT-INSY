@@ -38,7 +38,8 @@ else
                         <InputSelect @bind-Value="Lesson.Hour" class="sp-select">
                             @foreach (var h in Enum.GetValues<LessonHour>())
                             {
-                                <option value="@h">@GetHourLabel(h)</option>
+                                //<option value="@h">@GetHourLabel(h)</option>
+                                <option value="@h">@h.GetDescription()</option>
                             }
                         </InputSelect>
                     </div>
@@ -260,9 +261,10 @@ else
     }
 
     private async Task CancelInternal() => await OnCancel.InvokeAsync();
+    
     private static string GetHourLabel(LessonHour h) =>
         h.GetType().GetField(h.ToString())
             ?.GetCustomAttribute<DescriptionAttribute>()
             ?.Description ?? h.ToString();
-
+    
 }

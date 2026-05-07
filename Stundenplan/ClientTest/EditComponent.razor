@@ -1,0 +1,27 @@
+﻿@using Model
+@inject NavigationManager NavManager
+@inject HttpClient http
+
+<EditForm Model="lesson" OnSubmit="/*SaveChanges*/() => { OnSave.InvokeAsync(); }">
+    <InputNumber @bind-Value="lesson.Id"></InputNumber>
+    <InputNumber @bind-Value="lesson.Cid"></InputNumber>
+    <InputSelect @bind-Value="lesson.Hour">
+        @foreach (var h in Enum.GetValues<LessonHour>())
+        {
+            <option value="@h">@h.GetDescription()</option>
+        }
+    </InputSelect>
+    <button type="submit">Save</button>
+    <button type="button" @onclick='() => OnCancel.InvokeAsync()'>Abbrechen</button>
+</EditForm>
+@code {
+    [Parameter] public Lesson lesson { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+
+    /*public async Task SaveChanges()
+    {
+        await OnSave.InvokeAsync();
+    }*/
+}

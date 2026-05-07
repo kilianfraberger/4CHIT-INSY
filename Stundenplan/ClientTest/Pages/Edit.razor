@@ -1,0 +1,34 @@
+﻿@page "/Edit/{id:int}"
+@using Model
+@inject HttpClient http
+@inject NavigationManager NavManager
+<h3>Edit</h3>
+@if (lesson == null)
+{
+    <p>Lade Daten...</p>
+}
+else
+{
+    <EditComponent lesson="lesson" OnSave="SaveChanges" OnCancel="GoBack"></EditComponent>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Lesson? lesson { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        lesson = await http.GetFromJsonAsync<Lesson>($"api/Lesson/{Id}");
+    }
+
+    public async Task SaveChanges()
+    {
+        await http.PutAsJsonAsync($"/api/lesson/{Id}",  lesson);
+        GoBack();
+    }
+
+    public void GoBack()
+    {
+        NavManager.NavigateTo("/");
+    }
+}

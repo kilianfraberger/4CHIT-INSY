@@ -744,3 +744,37 @@ db.depts.aggregate([
             }
         }
     ]);
+
+//50
+const jonesJob = db.emps.findOne({ ENAME: "JONES" }).JOB;
+
+db.emps.find(
+    { JOB: jonesJob },
+    { ENAME: 1, _id: 0 }
+    );
+
+
+db.emps.aggregate([
+    {
+        $lookup: {
+            from: "emps",
+            pipeline: [
+                { $match: { ENAME: "JONES" } },
+                { $project: { JOB: 1, _id: 0 } }
+                ],
+            as: "jones"
+            }
+        },
+    { $unwind: "$jones" },
+    {
+        $match: {
+            $expr: { $eq: ["$JOB", "$jones.JOB"] }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            ENAME: 1
+            }
+        }
+    ])

@@ -8,12 +8,13 @@ builder.Services.AddDbContext<SwaggerContext>();
 builder.Services.AddCors(
     options => 
         options.AddPolicy(name: allow,
-            builder =>
+            policy =>
             {
-                builder.WithOrigins("http://localhost:5253") //?
+                policy.AllowAnyOrigin()
                     .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin(); //?
+                    .AllowAnyMethod();
+
+                //.WithOrigins("http://localhost:5253", "http://localhost:5253");
             }
             ));
 builder.Services.AddControllers();

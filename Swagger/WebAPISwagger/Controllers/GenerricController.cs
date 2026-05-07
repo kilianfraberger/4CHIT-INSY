@@ -41,7 +41,7 @@ namespace WebAPISwagger.Controllers
             _context.Set<T>().Add(t);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Get", new { id = t.Id }, t);
+            return CreatedAtAction("Get", new { id = t.Id }, t); // Location Header
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, T t)
@@ -59,7 +59,7 @@ namespace WebAPISwagger.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TExists(id))
+                if (!_context.Set<T>().Any(e=>e.Id==id))
                 {
                     return NotFound();
                 }
