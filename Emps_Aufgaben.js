@@ -167,7 +167,7 @@ db.emps.aggregate([
   },
   {
     $group: {
-      _id: null,
+      _id: null,3
       durchschnittliche_prämie: { $avg: "$commFixed" }
     }
   }
@@ -776,5 +776,71 @@ db.emps.aggregate([
             _id: 0,
             ENAME: 1
             }
+        }
+    ])
+
+//51
+db.emps.aggregate([
+    { $sort: { SAL: -1 } },
+    {
+        $group: {
+            _id: "$SAL",
+            docs: { $push: "$$ROOT" }
+            }
+        },
+    { $sort: { _id: -1 } },
+    { $limit: 1 },
+    { $unwind: "$docs" },
+    {
+        $project: {
+            _id: 0,
+            ENAME: "$docs.ENAME",
+            JOB: "$docs.JOB",
+            SAL: "$docs.SAL",
+            e2_SAL: { $literal: null }
+            }
+        }
+    ])
+
+//52
+db.emps.aggregate([
+    {
+        $group: {
+            _id: null,
+            maxLen: { $max: { $strLenCP: "$ENAME" } },
+            docs: { $push: "$$ROOT" }
+            }
+        },
+    { $unwind: "$docs" },
+    {
+        $match: {
+            $expr: { $eq: [{ $strLenCP: "$docs.ENAME" }, "$maxLen"] }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            ENAME: "$docs.ENAME"
+            }
+        }
+    ])
+
+//53
+db.emps.aggregate([
+    {
+        $lookup: {
+            from: "depts",
+            localField: "dept_id",
+            foreignField: "DEPTNO",
+            as: "dept"
+            }
+        },
+    {
+        $match: {
+            "dept.LOC": "NEW YORK"
+            }
+        },
+    {
+        $count: "count"
         }
     ])
