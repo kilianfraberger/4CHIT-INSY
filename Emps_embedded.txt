@@ -151,3 +151,57 @@ db.emps2.aggregate([
 db.emps2.find({
     "department.LOC": "NEW YORK"
     });
+
+//55
+db.emps2.aggregate([
+    { $match: { "department.LOC": "CHICAGO" } },
+    {
+        $lookup: {
+            from: "emps2",
+            pipeline: [
+                { $match: { ENAME: "ALLEN" } },
+                { $project: { _id: 0, JOB: 1 } }
+                ],
+            as: "allen_info"
+            }
+        },
+    {
+        $match: {
+            $expr: { $eq: ["$JOB", { $arrayElemAt: ["$allen_info.JOB", 0] }] }
+            }
+        },
+    { $sort: { ENAME: 1 } },
+    { $project: { allen_info: 0 } }
+    ]);
+
+//56
+db.emps2.aggregate([
+    {
+        $lookup: {
+            from: "emps2",
+            pipeline: [
+                { $match: { JOB: "SALESMAN" } },
+                { $group: { _id: null, avgSalesmanSal: { $avg: "$SAL" } } }
+                ],
+            as: "salesman_data"
+            }
+        },
+    {
+        $group: {
+            _id: "$JOB",
+            avgJobSal: { $avg: "$SAL" },
+            salesman_data: { $first: "$salesman_data" }
+            }
+        },
+    {
+        $match: {
+            $expr: { $gt: ["$avgJobSal", { $arrayElemAt: ["$salesman_data.avgSalesmanSal", 0] }] }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            JOB: "$_id"
+            }
+        }
+    ]);
