@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k4gmLxJy1W4=",
+  "dgSpecHash": "aI4gFyu9ABg=",
   "success": true,
   "projectFilePath": "C:\\Users\\kilia\\Github\\4CHIT-INSY\\Stundenplan\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -83,7 +83,7 @@
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\6.0.2\\microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.3\\microsoft.data.sqlite.core.10.0.3.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.diasymreader\\2.0.0\\microsoft.diasymreader.2.0.0.nupkg.sha512",
-    "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.hotreload.webassembly.browser\\10.0.107\\microsoft.dotnet.hotreload.webassembly.browser.10.0.107.nupkg.sha512",
+    "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.hotreload.webassembly.browser\\10.0.108\\microsoft.dotnet.hotreload.webassembly.browser.10.0.108.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\10.0.2\\microsoft.dotnet.scaffolding.shared.10.0.2.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.3\\microsoft.entityframeworkcore.10.0.3.nupkg.sha512",
     "C:\\Users\\kilia\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.3\\microsoft.entityframeworkcore.abstractions.10.0.3.nupkg.sha512",

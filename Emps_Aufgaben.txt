@@ -782,48 +782,34 @@ db.emps.aggregate([
 //51
 db.emps.aggregate([
     { $sort: { SAL: -1 } },
-    {
-        $group: {
-            _id: "$SAL",
-            docs: { $push: "$$ROOT" }
-            }
-        },
-    { $sort: { _id: -1 } },
     { $limit: 1 },
-    { $unwind: "$docs" },
     {
         $project: {
             _id: 0,
-            ENAME: "$docs.ENAME",
-            JOB: "$docs.JOB",
-            SAL: "$docs.SAL",
+            ENAME: 1,
+            JOB: 1,
+            SAL: 1,
             e2_SAL: { $literal: null }
             }
         }
-    ])
+    ]);
 
 //52
 db.emps.aggregate([
     {
-        $group: {
-            _id: null,
-            maxLen: { $max: { $strLenCP: "$ENAME" } },
-            docs: { $push: "$$ROOT" }
+        $addFields: {
+            nameLength: { $strLenCP: "$ENAME" }
             }
         },
-    { $unwind: "$docs" },
-    {
-        $match: {
-            $expr: { $eq: [{ $strLenCP: "$docs.ENAME" }, "$maxLen"] }
-            }
-        },
+    { $sort: { nameLength: -1 } },
+    { $limit: 1 },
     {
         $project: {
             _id: 0,
-            ENAME: "$docs.ENAME"
+            ENAME: 1
             }
         }
-    ])
+    ]);
 
 //53
 db.emps.aggregate([
@@ -844,3 +830,16 @@ db.emps.aggregate([
         $count: "count"
         }
     ])
+
+//54
+db.emps.aggregate([
+    {
+        $lookup: {
+            from: "depts",
+            localField: "dept_id",
+            foreignField: "DEPTNO",
+            as: "department"
+            }
+        },
+    { $match: { "department.LOC": "NEW YORK" } }
+    ]);

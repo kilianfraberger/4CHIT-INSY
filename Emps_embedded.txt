@@ -1,0 +1,153 @@
+//40
+db.emps2.aggregate([
+    { $group: { _id: "$JOB", avgSal: { $avg: "$SAL" } } },
+    { $match: { avgSal: { $gt: 1500 } } },
+    { $sort: { avgSal: -1 } }
+    ]);
+
+//41
+db.emps2.aggregate([
+    { $match: { JOB: "CLERK" } },
+    { $group: { _id: "$department.DEPTNO", count: { $sum: 1 } } },
+    { $match: { count: { $gte: 2 } } }
+    ]);
+
+//43
+db.emps2.aggregate([
+    { $group: { _id: "$JOB", AVG_SALARY: { $avg: "$SAL" } } },
+    { $match: { AVG_SALARY: { $gt: 1500 } } },
+    { $sort: { _id: 1 } },
+    { $project: { _id: 0, JOB: "$_id", AVG_SALARY: 1 } }
+    ]);
+
+//46
+db.emps2.aggregate([
+    {
+        $lookup: {
+            from: "emps2",
+            pipeline: [
+                { $match: { ENAME: "JONES" } },
+                { $project: { _id: 0, SAL: 1 } }
+                ],
+            as: "jones_data"
+            }
+        },
+    {
+        $match: {
+            $expr: { $gt: ["$SAL", { $arrayElemAt: ["$jones_data.SAL", 0] }] }
+            }
+        },
+    { $project: { jones_data: 0 } }
+    ]);
+
+//47
+db.emps2.aggregate([
+    {
+        $lookup: {
+            from: "emps2",
+            localField: "parent_id",
+            foreignField: "id",
+            as: "parent_info"
+            }
+        },
+    {
+        $match: {
+            $expr: { $gt: ["$SAL", { $arrayElemAt: ["$parent_info.SAL", 0] }] }
+            }
+        },
+    { $project: { _id: 0, ENAME: 1, SAL: 1 } }
+    ]);
+
+//48
+db.emps2.aggregate([
+    {
+        $lookup: {
+            from: "emps2",
+            pipeline: [
+                { $match: { JOB: "PRESIDENT" } },
+                { $project: { _id: 0, SAL: 1 } }
+                ],
+            as: "pres_data"
+            }
+        },
+    {
+        $match: {
+            $expr: {
+                $lt: ["$SAL", { $multiply: [0.3, { $arrayElemAt: ["$pres_data.SAL", 0] }] }]
+                }
+            }
+        },
+    { $project: { pres_data: 0 } }
+    ]);
+
+//49
+db.depts2.aggregate([
+    {
+        $match: {
+            $or: [
+                { employees: { $size: 0 } },
+                { employees: { $exists: false } }
+                ]
+            }
+        }
+    ]);
+
+//50
+db.emps2.aggregate([
+    {
+        $lookup: {
+            from: "emps2",
+            pipeline: [
+                { $match: { ENAME: "JONES" } },
+                { $project: { JOB: 1, _id: 0 } }
+                ],
+            as: "jones"
+            }
+        },
+    { $unwind: "$jones" },
+    { $match: { $expr: { $eq: ["$JOB", "$jones.JOB"] } } },
+    { $project: { _id: 0, ENAME: 1 } }
+    ]);
+
+//51
+db.emps2.aggregate([
+    { $sort: { SAL: -1 } },
+    { $limit: 1 },
+    {
+        $project: {
+            _id: 0,
+            ENAME: 1,
+            JOB: 1,
+            SAL: 1,
+            e2_SAL: { $literal: null }
+            }
+        }
+    ]);
+
+//52
+db.emps2.aggregate([
+    {
+        $addFields: {
+            nameLength: { $strLenCP: "$ENAME" }
+            }
+        },
+    { $sort: { nameLength: -1 } },
+    { $limit: 1 },
+    {
+        $project: {
+            _id: 0,
+            ENAME: 1
+            }
+        }
+    ]);
+
+//53
+db.emps2.aggregate([
+    { $match: { "department.LOC": "NEW YORK" } },
+    { $count: "count" }
+    ]);
+
+//54
+db.emps2.find({
+    "department.LOC": "NEW YORK"
+    });
