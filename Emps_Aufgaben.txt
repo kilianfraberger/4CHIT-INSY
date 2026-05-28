@@ -90,16 +90,6 @@ db.emps.aggregate([
 ]);
 
 
-//15
-db.emps.aggregate([
-  {
-    $project: {
-      SAL_COMM_SUM: { $add: ["$SAL", "$COMM"] },
-      _id:0
-    }
-  }
-]);
-
 //16
 db.emps.aggregate([
   {
@@ -119,7 +109,11 @@ db.emps.aggregate([
       _id: null,
       totalSalary: { $sum: "$SAL" }
     }
-  }
+      },{
+    $project: {
+        _id:0
+        }
+    }
 ]);
 
 //nach dept_id gruppiert
@@ -137,13 +131,9 @@ db.emps.aggregate([
 db.emps.aggregate([
   {
     $addFields: {
-      commFixed: {
-        $cond: [
-          { $not: ["$comm"] }, // Feld fehlt
-          250,                                         // dann 250
-          "$comm"                                      // sonst comm
-        ]
-      }
+        commFixed: {
+            $ifNull: ["$COMM", 250]
+            }
     }
   },
   {
@@ -151,48 +141,35 @@ db.emps.aggregate([
       _id: null,
       durchschnittliche_prämie: { $avg: "$commFixed" }
     }
-  }
-]);
-db.emps.aggregate([
-  {
-    $addFields: {
-      commFixed: {
-        $cond: [
-          { $eq: [ { $type: "$comm" }, "missing" ] }, // Feld ist unset
-          250,                                        // dann 250
-          "$comm"                                     // sonst comm
-        ]
-      }
-    }
   },
-  {
-    $group: {
-      _id: null,3
-      durchschnittliche_prämie: { $avg: "$commFixed" }
+    {
+    $project: {_id:0}
     }
-  }
-])
+]);
 
-
-db.emps.find()
 
 //19
 db.emps.aggregate([
-  { $match: { dept_id: 30 } },
-  {
-    $project: {
-      "CountOfSal": { $cond: { if: { $ne: ["$sal", null] }, then: 1, else: 0 } },
-      "CountOfComm": { $cond: { if: { $ne: ["$comm", null] }, then: 1, else: 0 } }
+    { $match: { dept_id: 30 } },
+    {
+        $project: {
+            "CountOfSal": { $cond: { if: { $ne: ["$sal", null] }, then: 1, else: 0 } },
+            "CountOfComm": {
+                $cond: { if: { $gt: ["$COMM", -1] }, then: 1, else: 0 }
+                }
+            }
+        },
+    {
+        $group: {
+            _id: null,
+            "CountOfSal": { $sum: "$CountOfSal" },
+            "CountOfComm": { $sum: "$CountOfComm" }
+            }
+        },
+    {
+        $project: {_id:0}
     }
-  },
-  {
-    $group: {
-      _id: null,
-      "CountOfSal": { $sum: "$CountOfSal" },
-      "CountOfComm": { $sum: "$CountOfComm" }
-    }
-  }
-])
+    ])
 
 
 //20
@@ -271,7 +248,8 @@ db.emps.aggregate([
   {
     $project: {
       dept_id: "$_id",
-      UNIQUE_JOBS: { $size: "$UNIQUE_JOBS" }  // Zählt die Anzahl der verschiedenen JOBs
+      UNIQUE_JOBS: { $size: "$UNIQUE_JOBS" },  // Zählt die Anzahl der verschiedenen JOBs
+    _id:0
     }
   }
 ]);
@@ -311,7 +289,7 @@ db.emps.aggregate([
       _id: 0,
       ENAME: 1,
       JOB: 1,
-      COMM: 1
+      COMM: 1,
     }
   }
 ])
@@ -611,8 +589,8 @@ db.emps.aggregate([
 //41
 db.emps.aggregate([
     { $match: { JOB: "CLERK" } },
-    { $group: { _id: "$dept_id", count: { $sum: 1 } } },
-    { $match: { count: { $gte: 2 } } }
+    { $group: { _id: "$dept_id", Anzahl: { $sum: 1 } } },
+    { $match: { Anzahl: { $gte: 2 } } }
     ]);
 
 //43
@@ -740,7 +718,7 @@ db.depts.aggregate([
         },
     {
         $project: {
-            matched_emps: 0
+            matched_emps: 1
             }
         }
     ]);
@@ -788,8 +766,7 @@ db.emps.aggregate([
             _id: 0,
             ENAME: 1,
             JOB: 1,
-            SAL: 1,
-            e2_SAL: { $literal: null }
+            SAL: 1
             }
         }
     ]);
@@ -797,16 +774,22 @@ db.emps.aggregate([
 //52
 db.emps.aggregate([
     {
-        $addFields: {
-            nameLength: { $strLenCP: "$ENAME" }
+        $group: {
+            _id: null,
+            maxLen: { $max: { $strLenCP: "$ENAME" } },
+            allEmps: { $push: "$$ROOT" }
             }
         },
-    { $sort: { nameLength: -1 } },
-    { $limit: 1 },
+    { $unwind: "$allEmps" },
+    {
+        $match: {
+            $expr: { $eq: [{ $strLenCP: "$allEmps.ENAME" }, "$maxLen"] }
+            }
+        },
     {
         $project: {
             _id: 0,
-            ENAME: 1
+            ENAME: "$allEmps.ENAME"
             }
         }
     ]);
