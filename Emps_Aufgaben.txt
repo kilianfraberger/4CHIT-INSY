@@ -758,18 +758,14 @@ db.emps.aggregate([
     ])
 
 //51
-db.emps.aggregate([
-    { $sort: { SAL: -1 } },
-    { $limit: 1 },
-    {
-        $project: {
-            _id: 0,
-            ENAME: 1,
-            JOB: 1,
-            SAL: 1
-            }
-        }
-    ]);
+const maxSal = db.emps.aggregate([
+    { $group: { _id: null, maxSal: { $max: "$SAL" } } }
+    ]).toArray()[0].maxSal;
+
+db.emps.find(
+    { SAL: maxSal },
+    { _id: 0, ENAME: 1, JOB: 1, SAL: 1 }
+    );
 
 //52
 db.emps.aggregate([
