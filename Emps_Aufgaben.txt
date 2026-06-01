@@ -731,6 +731,31 @@ db.emps.find(
     { ENAME: 1, _id: 0 }
     );
 
+db.emps.aggregate([
+    {
+        $lookup: {
+            from: "emps",
+            pipeline: [
+                { $match: { ENAME: "JONES" } },
+                { $project: { _id: 0, job: "$JOB" } }
+                ],
+            as: "jones_info"
+            }
+        },
+    {
+        $match: {
+            $expr: {
+                $eq: ["$JOB", { $arrayElemAt: ["$jones_info.job", 0] }]
+                }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            ENAME: 1
+            }
+        }
+    ])
 
 db.emps.aggregate([
     {
@@ -766,6 +791,30 @@ db.emps.find(
     { SAL: maxSal },
     { _id: 0, ENAME: 1, JOB: 1, SAL: 1 }
     );
+
+db.emps.aggregate([
+    {
+        $group: {
+            _id: null,
+            maxSal: { $max: "$SAL" },
+            docs: { $push: "$$ROOT" }
+            }
+        },
+    { $unwind: "$docs" },
+    {
+        $match: {
+            $expr: { $eq: ["$docs.SAL", "$maxSal"] }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            ENAME: "$docs.ENAME",
+            JOB: "$docs.JOB",
+            SAL: "$docs.SAL"
+            }
+        }
+    ])
 
 //52
 db.emps.aggregate([
