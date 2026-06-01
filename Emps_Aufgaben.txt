@@ -884,3 +884,32 @@ db.emps.aggregate([
             }
         }
     ]);
+
+//57
+    db.emps.aggregate([
+        {
+            $lookup: {
+                from: "emps",
+                pipeline: [
+                    { $match: { dept_id: 30 } },
+                    { $group: { _id: "$JOB" } }
+                    ],
+                as: "jobs_in_30"
+                }
+            },
+        {
+            $match: {
+                dept_id: 10,
+                $expr: {
+                    $in: ["$JOB", "$jobs_in_30._id"]
+                    }
+                }
+            },
+        {
+            $project: {
+                _id: 0,
+                ENAME: 1,
+                JOB: 1
+                }
+            }
+        ])
