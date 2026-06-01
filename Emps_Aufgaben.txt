@@ -913,3 +913,34 @@ db.emps.aggregate([
                 }
             }
         ])
+
+//58
+db.emps.aggregate([
+    {
+        $lookup: {
+            from: "emps",
+            pipeline: [
+                { $match: { dept_id: 30 } },
+                { $group: { _id: "$JOB" } }
+                ],
+            as: "excluded_jobs"
+            }
+        },
+    {
+        $match: {
+            dept_id: 10,
+            $expr: {
+                $not: {
+                    $in: ["$JOB", "$excluded_jobs._id"]
+                    }
+                }
+            }
+        },
+    {
+        $project: {
+            _id: 0,
+            ENAME: 1,
+            JOB: 1
+            }
+        }
+    ])
